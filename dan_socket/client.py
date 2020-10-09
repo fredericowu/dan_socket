@@ -10,9 +10,6 @@ class DanClient(BaseConnection):
         self.port = port
         self.event = Event  # it's a class not object
 
-    def process_message(self, message):
-        self.event.trigger_event("on_message", message)
-
     def connection_closed(self, client):
         client.client_sock.close()
         if client in self._clients:
