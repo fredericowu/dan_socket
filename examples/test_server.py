@@ -1,9 +1,3 @@
-# Adding the library path.
-# TEST PURPOSE ONLY
-#import sys
-#import os
-#sys.path.append("{}/../dan_socket".format(os.getcwd()))
-##########################
 from dan_socket.server import DanServer
 
 
