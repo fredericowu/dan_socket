@@ -3,6 +3,7 @@ from threading import Thread
 from dan_socket.event import Event
 from dan_socket.base import BaseConnection
 
+
 class ClientConnection:
     def __init__(self, client_sock, server):
         self.client_sock = client_sock
@@ -25,11 +26,6 @@ class ClientConnection:
 
 
 class DanServer(BaseConnection):
-    PROTOCOL = {
-        "TCP": socket.SOCK_STREAM,
-        "UDP": socket.SOCK_DGRAM
-    }
-
     def __init__(self, host, port, protocol="TCP", max_connections=50):
         self._sock = socket.socket(socket.AF_INET, BaseConnection.PROTOCOL[protocol])
         self._sock.bind((host, port))
