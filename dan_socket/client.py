@@ -10,12 +10,6 @@ class DanClient(BaseConnection):
         self.port = port
         self.event = Event  # it's a class not object
 
-    def connection_closed(self, client):
-        client.client_sock.close()
-        if client in self._clients:
-            del self._clients[client]
-        self.event.trigger_event("on_connection_closed", client)
-
     def start(self):
         self._sock.connect((self.host, self.port))
         while True:
